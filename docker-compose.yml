@@ -4,3 +4,18 @@ services:
     build: ./work
     volumes:
       - ./work:/go/src/
+    ports:
+      3000:3000
+    networks:
+      - app-networks
+  web-service:
+    build: ./web
+    volumes:
+      - ./web:/tmp/html
+    ports:
+      8080:80
+    networks:
+      - app-networks
+networks:
+  app-networks:
+    driver: bridge
