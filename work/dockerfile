@@ -1,0 +1,8 @@
+# バージョン指定
+FROM golang:latest
+# ローカルファイルをワークフォルダに追加
+ADD . /go/src
+# ワークフォルダに変更
+WORKDIR /go/src
+# 起動時に実行するコマンド
+CMD ["go", "run", "main.go"]
