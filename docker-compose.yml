@@ -5,15 +5,15 @@ services:
     volumes:
       - ./work:/go/src/
     ports:
-      3000:3000
+      - 3000:3000
     networks:
       - app-networks
   web-service:
     build: ./web
     volumes:
-      - ./web:/tmp/html
+      - ./web:/usr/local/apache2/htdocs
     ports:
-      8080:80
+      - 8080:80
     networks:
       - app-networks
 networks:

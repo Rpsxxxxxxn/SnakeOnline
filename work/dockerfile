@@ -4,5 +4,8 @@ FROM golang:latest
 ADD . /go/src
 # ワークフォルダに変更
 WORKDIR /go/src
+# モジュールを使用可能にする
+RUN go env -w GO111MODULE=auto
+RUN go get github.com/gorilla/websocket
 # 起動時に実行するコマンド
 CMD ["go", "run", "main.go"]
